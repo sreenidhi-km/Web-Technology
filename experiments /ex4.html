@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Data Types</title>
+</head>
+<body>
+    <h1>JavaScript Data Types</h1>
+    <button onclick="showDataTypes()">Show Data Types</button>
+    
+    <div id="output"></div>
+
+    <script>
+        function showDataTypes() {
+            let stringExample = "Hello";
+            let numberExample = 42;
+            let booleanExample = true;
+            let arrayExample = ["Apple", "Banana", "Cherry"];
+            let objectExample = {
+                name: "KM Sreenidhi",
+                age: 19,
+                city: "Hyderabad"
+            };
+            
+            let undefinedExample;
+            
+            let output = document.getElementById("output");
+            output.innerHTML = `
+                <p><strong>String:</strong> ${stringExample} (${typeof stringExample})</p>
+                <p><strong>Number:</strong> ${numberExample} (${typeof numberExample})</p>
+                <p><strong>Boolean:</strong> ${booleanExample} (${typeof booleanExample})</p>
+                <p><strong>Array:</strong> [${arrayExample}] (${typeof arrayExample})</p>
+                <p><strong>Object:</strong> ${JSON.stringify(objectExample)} (${typeof objectExample})</p>
+                <p><strong>Undefined:</strong> ${undefinedExample} (${typeof undefinedExample})</p>
+            `;
+        }
+    </script>
+</body>
+</html>

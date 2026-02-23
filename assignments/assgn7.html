@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Discount Calculator</title>
+</head>
+<body>
+    <h1>Shopping Discount Calculator</h1>
+    
+    <div>
+        <label for="amount">Enter purchase amount (₹):</label>
+        <input type="number" id="amount" min="0" step="0.01">
+    </div>
+    
+    <div>
+        <button onclick="calculateDiscount()">Calculate Final Price</button>
+    </div>
+    
+    <div>
+        <h2 id="result"></h2>
+    </div>
+    
+    <script>
+        function calculateDiscount() {
+            // Get purchase amount
+            let amount = Number(document.getElementById("amount").value);
+            let discount = 0;
+            let finalPrice = amount;
+            
+            // Calculate discount for purchases above ₹5000
+            if (amount > 5000) {
+                discount = amount * 0.1; // 10% discount
+                finalPrice = amount - discount;
+            }
+            
+            // Display results
+            let resultHTML = `
+                Original Price: ₹${amount.toFixed(2)}<br>
+                Discount: ₹${discount.toFixed(2)}<br>
+                Final Price: ₹${finalPrice.toFixed(2)}
+            `;
+            
+            document.getElementById("result").innerHTML = resultHTML;
+        }
+    </script>
+</body>
+</html>

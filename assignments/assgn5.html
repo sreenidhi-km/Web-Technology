@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Quiz System</title>
+</head>
+<body>
+    <h1>True or False Quiz</h1>
+    
+    <div>
+        <p>JavaScript was created in 1995.</p>
+        <input type="radio" id="true" name="answer" value="true">
+        <label for="true">True</label><br>
+        <input type="radio" id="false" name="answer" value="false">
+        <label for="false">False</label><br>
+    </div>
+    
+    <div>
+        <button onclick="checkAnswer()">Submit</button>
+    </div>
+    
+    <div>
+        <h2 id="result"></h2>
+    </div>
+    
+    <script>
+        function checkAnswer() {
+            // Get selected answer
+            let selectedAnswer;
+            let trueRadio = document.getElementById("true");
+            
+            if (trueRadio.checked) {
+                selectedAnswer = true;
+            } else {
+                selectedAnswer = false;
+            }
+            
+            // The correct answer is true (JavaScript was created in 1995)
+            let correctAnswer = true;
+            
+            // Check if answer is correct
+            if (selectedAnswer === correctAnswer) {
+                document.getElementById("result").innerHTML = "Correct";
+                document.getElementById("result").style.color = "green";
+            } else {
+                document.getElementById("result").innerHTML = "Wrong";
+                document.getElementById("result").style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>

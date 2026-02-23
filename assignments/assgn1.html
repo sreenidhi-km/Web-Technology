@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Greeting</title>
+</head>
+<body>
+    <h1 id="greeting">Welcome to University Website</h1>
+    
+    <script>
+        function updateGreeting() {
+            // Get current hour (0-23)
+            let hour = new Date().getHours();
+            let message;
+            
+            // Set message based on time
+            if (hour < 12) {
+                message = "Good Morning";
+            } else if (hour < 18) {
+                message = "Good Afternoon";
+            } else {
+                message = "Good Evening";
+            }
+            
+            // Update the greeting text
+            document.getElementById("greeting").innerHTML = message + ", Welcome to Our University!";
+        }
+        
+        // Update greeting when page loads
+        updateGreeting();
+    </script>
+</body>
+</html>

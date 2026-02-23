@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Registration Form</title>
+</head>
+<body>
+    <h1>College Registration Form</h1>
+    
+    <form id="registrationForm" onsubmit="return validateForm()">
+        <div>
+            <label for="email">Email (Gmail only):</label>
+            <input type="email" id="email" name="email">
+        </div>
+        <div>
+            <label for="password">Password (minimum 8 characters):</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <div>
+            <p id="errorMessage" style="color: red;"></p>
+        </div>
+        <div>
+            <button type="submit">Register</button>
+        </div>
+    </form>
+    
+    <script>
+        function validateForm() {
+            // Get form values
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let errorMessage = document.getElementById("errorMessage");
+            
+            // Gmail validation using regex
+            let gmailPattern = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+            if (!gmailPattern.test(email)) {
+                errorMessage.innerHTML = "Please enter a valid Gmail address";
+                return false;
+            }
+            
+            // Password length validation
+            if (password.length < 8) {
+                errorMessage.innerHTML = "Password must be at least 8 characters long";
+                return false;
+            }
+            
+            // If all validations pass
+            errorMessage.innerHTML = "";
+            alert("Registration successful!");
+            return true;
+        }
+    </script>
+</body>
+</html>

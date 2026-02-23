@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Traffic Signal</title>
+</head>
+<body>
+    <h1>Smart Traffic Signal System</h1>
+    
+    <div>
+        <label for="lightColor">Select Traffic Light Color:</label>
+        <select id="lightColor" onchange="updateSignal()">
+            <option value="red">Red</option>
+            <option value="yellow">Yellow</option>
+            <option value="green">Green</option>
+        </select>
+    </div>
+    
+    <div>
+        <h2 id="signalMessage" style="font-size: 48px; margin-top: 20px;"></h2>
+    </div>
+    
+    <script>
+        function updateSignal() {
+            // Get selected color
+            let color = document.getElementById("lightColor").value;
+            let message;
+            let messageColor;
+            
+            // Set message based on selected color
+            if (color === "red") {
+                message = "STOP";
+                messageColor = "red";
+            } else if (color === "yellow") {
+                message = "READY";
+                messageColor = "orange";
+            } else if (color === "green") {
+                message = "GO";
+                messageColor = "green";
+            }
+            
+            // Update display
+            let signalElement = document.getElementById("signalMessage");
+            signalElement.innerHTML = message;
+            signalElement.style.color = messageColor;
+        }
+        
+        // Initialize when page loads
+        updateSignal();
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Eligibility Checker</title>
+</head>
+<body>
+    <h1>Bank Loan Eligibility Check</h1>
+    
+    <div>
+        <label for="salary">Enter your monthly salary (₹):</label>
+        <input type="number" id="salary" min="0">
+    </div>
+    
+    <div>
+        <button onclick="checkEligibility()">Check Eligibility</button>
+    </div>
+    
+    <div>
+        <h2 id="result"></h2>
+    </div>
+    
+    <script>
+        function checkEligibility() {
+            // Get salary value
+            let salary = Number(document.getElementById("salary").value);
+            let resultElement = document.getElementById("result");
+            
+            // Check eligibility
+            if (salary > 30000) {
+                resultElement.innerHTML = "Eligible for Loan ";
+                resultElement.style.color = "green";
+            } else {
+                resultElement.innerHTML = "Not Eligible for Loan ";
+                resultElement.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
